@@ -1,0 +1,147 @@
+<!doctype html><html><head><link rel=stylesheet type=text/css href=styles/styles.css><link rel=stylesheet href=//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css><script src=//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js></script><script src=//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js></script><title>instantsearch.js basics</title></head><body><div id=header><span id=headerContentWrapper><span id=logo></span> <span id=title>Product Library</span></span></div><div id=main><span id=mainContentWrapper><br><div id=searchWrapper><input type=text placeholder="Howdy, what are you looking for?" id=search-input> <span id=search_icon></span></div><div id=outputWrapper><div id=outputHeader>SUGGESTIONS FOR YOU:</div><hr><div id=results><div id=hits-container></div><div id=pagination-container></div></div><div id=widgets><div id=price-ranges></div><hr><div id=categories></div><hr><div id=brands></div></div></div></span></div></body><script>
+
+      var search = instantsearch({
+        appId: 'N3GNV1SM7E',
+        apiKey: 'a2aa3b25fa2c58cf507b4a1602567881',
+        indexName: 'best_buy_demo'
+      });
+
+      search.addWidget(
+        instantsearch.widgets.searchBox({
+          container: '#search-input',
+          placeholder: 'Search for products...'
+        })
+      );
+
+      var onRenderHandler = function() {
+      		var imageWidth = $('.item_img').width();
+			$('.item_img').css({'height':imageWidth+'px'});
+
+			$( ".item_rating" ).each(function( index ) {
+
+				var thistext = $(this).attr('data');
+				console.log("TEXT: "+ thistext);
+			  	var pop = $(this).attr('data').toNum();
+			  	console.log("POP: "+pop);
+			  	var rating = pop/10000*10;
+			  	console.log("RATING: "+rating);
+			  	var rounded = rating.toFixed(1);
+			  	console.log("ROUNDED: "+rounded);
+
+			  	$(this).html("<b>Rated:</b> "+ rounded + "/10");
+			});
+
+			$( ".item_shipping" ).each(function( index ) {
+			  	var free_shipping = $(this).text();
+			  	if(free_shipping=="false"){
+			  		$(this).css("display","none");
+			  	}else{
+			  		$(this).text("FREE Shipping!");
+			  	}
+
+			  	
+			});
+      };
+	  search.on('render', onRenderHandler);
+
+      search.addWidget(
+        instantsearch.widgets.hits({
+          container: '#hits-container',
+          hitsPerPage: 10,
+          templates: {
+            item: '<span class="itemWrapper">'+
+							'<div class="imageCol">' +
+								'<span class="item_img" style="background-image: url({{image}})"></span>' +
+								'<span class="item_rating" data="{{popularity}}"></span>' +
+							'</div>' +
+							'<div class="infoCol">' +
+								'<span class="item_name">{{name}}</span>' +
+								'<span class="item_brand">{{brand}}</span>' +
+								'<span class="item_categories">{{categories}}</span>' +
+								'<span class="item_details">{{description}}</span>' +
+							'</div>' +
+							'<div class="pricingCol">' +
+								'<span class="item_price">${{price}}</span>' +
+								'<span class="item_shipping">{{free_shipping}}</span>' +
+								'<span class="item_number">Item #: {{objectID}}</span>' +
+								'<a target="_blank" href="{{url}}"><span class="item_link">VIEW</span></a>' +
+							'</div>' +
+						'</span><hr>'
+          }
+        })
+      );
+
+      search.addWidget(
+        instantsearch.widgets.pagination({
+          container: '#pagination-container'
+        })
+      );
+
+      search.addWidget(
+	    instantsearch.widgets.menu({
+		  container: '#categories',
+		  attributeName: 'categories',
+		  limit: 10,
+		  templates: {
+		    header: 'Categories'
+		  }
+		})
+	  );
+
+	  search.addWidget(
+	    instantsearch.widgets.refinementList({
+	      container: '#brands',
+	      attributeName: 'brand',
+	      operator: 'or',
+	      limit: 10,
+	      templates: {
+	        header: 'Brands'
+	      }
+	    })
+	  );
+
+		search.addWidget(
+		  instantsearch.widgets.priceRanges({
+		    container: '#price-ranges',
+		    attributeName: 'price',
+		    labels: {
+		      currency: '$',
+		      separator: 'to',
+		      button: 'Go'
+		    },
+		    templates: {
+		      header: 'Price'
+		    }
+		  })
+		);
+
+      search.start();
+	</script><script src=//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js></script><script src=//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.jquery.min.js></script><script>
+
+	String.prototype.toNum = function(){
+    	return parseInt(this, 10);
+	}
+
+	var imageWidth = $('.item_img').width();
+	$('.item_img').css({'height':imageWidth+'px'});
+	$( window ).resize(function() {
+		var imageWidth = $('.item_img').width();
+		$('.item_img').css({'height':imageWidth+'px'});
+	});
+	// var client = algoliasearch('N3GNV1SM7E', 'a2aa3b25fa2c58cf507b4a1602567881')
+	// var index = client.initIndex('best_buy_demo');
+	// $('#search-input').autocomplete({ hint: false }, [
+	// {
+	//   source: $.fn.autocomplete.sources.hits(index, { hitsPerPage: 5 }),
+	//   displayKey: 'name',
+	//   templates: {
+	//     suggestion: function(suggestion) {
+	//       console.log(suggestion);
+	//       return '<img src="'+suggestion._highlightResult.image.value+'" alt="Smiley face" height="50" width="50" style="float:left;margin:0px;padding:0px;"><font style="display:inline-block;margin-left:10px;margin-top:15px;">'+suggestion._highlightResult.name.value+'<font>';
+	//     }
+	//   }
+	// }
+	// ]).on('autocomplete:selected', function(event, suggestion, dataset) {
+	// 	console.log(suggestion, dataset);
+	// });
+</script></html>

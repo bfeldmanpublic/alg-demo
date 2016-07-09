@@ -1,0 +1,385 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+#header{
+	float: left;
+	margin: 0px;
+	width: 100%;
+	height: 100px;
+	background-color: #003b64;
+	z-index: 1;
+}
+
+#headerContentWrapper{
+	display: block;
+	width: 90%;
+	height: 100px;
+	margin: 10px auto;
+}
+
+#logo{
+	display: block;
+	float: left;
+	width: 130px;
+	height: 82px;
+	background-image: url('../images/logo.png');
+	background-size: 130px 82px;
+	background-repeat: no-repeat;
+}
+
+#title{
+	color: white;
+	font-family: arial;
+	font-size: 26px;
+	float: left;
+	padding: 25px;
+}
+
+#main{
+	position: relative;
+	float: left;
+	width: 100%;
+	min-height: 100%;
+	background-color: #F8F8F8;}
+
+#mainContentWrapper{
+	display: block;
+	width: 90%;
+	margin: 30px auto;
+}
+
+#status{
+	font-family: "Arial";
+	font-size: 20px;
+	color: #555555;
+}
+
+*:focus {
+    outline: none;
+}
+
+#searchWrapper{
+	display: block;
+	width: 400px;
+	/*margin: 30px auto;*/
+}
+
+#search_icon{
+	position: relative;
+	width: 20px;
+	height: 20px;
+	right: 20px;
+	top: -30px;
+	float: right;
+	background-repeat: no-repeat;
+	background-image: url('../images/search_icon.png');
+	background-size: 20px 20px;
+}
+
+#search-input{
+	position: relative;
+	width: 100%;
+	font-size: 16px;
+    border-color: #fff;
+    padding: 6px;
+    border-width: 4px;
+    border-radius: 20px;
+    border-style: solid;
+}
+
+#outputWrapper{
+	margin-top: 30px;
+	/*border: 1px solid red;*/
+}
+
+#outputHeader{
+	font-size: 16px;
+	font-family: proxima-nova,Arial,sans-serif;
+	font-weight: bold;
+	color: #3d3d3d;
+}
+
+#results{
+	display: block;
+	float: left;
+	width: 69%;
+	background-color: white;
+	border-radius: 10px;
+	/*box-shadow: 1px 1px 1px;*/
+	/*border: 1px solid red;*/
+}
+
+#widgets{
+	display: block;
+	float: right;
+	width: 29%;
+	background-color: white;
+	border-radius: 10px;
+	padding: 5px;
+	/*border: 1px solid black;*/
+}
+
+#myfooter{
+	float: left;
+	margin: 0px;
+	width: 100%;
+	height: 50px;
+	background-color: #999;
+	z-index: 1;
+}
+
+#headerContentWrapper{
+	display: block;
+	width: 90%;
+	margin: 10px auto;
+	font-size: 16px;
+	font-family: proxima-nova,Arial,sans-serif;
+	font-weight: bold;
+	color: #fff;
+}
+
+.itemWrapper{
+	display: block;
+	float: left;
+	overflow: hidden;
+    position: relative;
+    /*margin-top: 20px;*/
+    width: 100%;
+    padding-bottom: 10px;
+	/*border: 1px solid yellow;*/
+}
+
+.imageCol{
+ 	display: block;
+	float: left;
+	width: 24%;
+	/*border: 1px solid blue;*/
+}
+
+.infoCol{
+	display: block;
+	float: left;
+	width: 55%;
+	padding-left: 5px;
+	/*border: 1px solid blue;*/
+}
+
+.pricingCol{
+	display: block;
+	position: absolute;
+	right: 0px;
+	width: 19%;
+	height: 100%;
+	/*border: 1px solid blue;*/
+}
+
+.item_img{
+	display: block;
+	float: left;
+	width: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.item_rating{
+	display: block;
+	float: left;
+	font-family: arial;
+	/*font-weight: bold;*/
+	width: 100%;
+	margin: 0px auto;
+	text-align: center;
+	margin-top: 10px;
+	/*border: 1px solid red;*/
+}
+
+.item_name{
+	display: block;
+	float: left;
+	font-family: arial;
+	/*font-weight: bold;*/
+	font-size: 18px;
+	width: 100%;
+	margin: 0px auto;
+	margin-top: 5px;
+	/*border: 1px solid red;*/
+}
+
+.item_brand{
+	display: block;
+	float: left;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 16px;
+	width: 100%;
+	margin: 0px auto;
+	/*margin-top: 10px;*/
+	/*border: 1px solid red;*/
+}
+
+.item_categories{
+	display: block;
+	float: left;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 12px;
+	color: blue;
+	width: 100%;
+	margin: 0px auto;
+	/*margin-top: 10px;*/
+	/*border: 1px solid red;*/
+}
+
+.item_details{
+	display: block;
+	float: left;
+	font-family: arial;
+	/*font-weight: bold;*/
+	font-size: 14px;
+	width: 100%;
+	margin: 0px auto;
+	margin-top: 5px;
+	/*border: 1px solid red;*/
+}
+
+.item_price{
+	display: block;
+	float: left;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 20px;
+	width: 100%;
+	margin: 0px auto;
+	margin-top: 5px;
+	padding-left: 5px;
+	/*border: 1px solid red;*/
+}
+
+.item_shipping{
+	display: block;
+	position: relative;
+	float: left;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 12px;
+	width: 100px;
+	margin: 0px auto;
+	text-align: center;
+	/*margin-top: 10px;*/
+	padding-left: 5px;
+	margin-left: 5px;
+	margin-top: 5px;
+	border-radius: 4px;
+	background-color: green;
+	color: white;
+	/*border: 1px solid red;*/
+}
+
+.item_number{
+	display: block;
+	float: left;
+	font-family: arial;
+	/*font-weight: bold;*/
+	font-size: 10px;
+	width: 100%;
+	margin: 0px auto;
+	margin-top: 5px;
+	padding-left: 5px;
+	/*border: 1px solid red;*/
+}
+
+.item_link{
+	display: block;
+	float: left;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 20px;
+	width: 100px;
+	height: 30px;
+	margin: 0px auto;
+	text-align: center;
+	padding-left: 5px;
+	padding-top: 10px;
+	margin-left: 5px;
+	margin-top: 15px;
+	border-width: 3px;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #003b64;
+	background-color: #69B3E7;
+	color: #FFFFFF;
+	/*border: 1px solid red;*/
+}
+
+.item_link:hover{
+/*	font-size: 16px;
+    border-color: #69A3E9;
+    padding: 6px;
+    border-width: 4px;
+    border-radius: 2px;
+    border-style: solid;*/
+    background-color: #003b64;
+    /*color: #000000;*/
+}
+
+.item_link:active{
+/*	font-size: 16px;
+    border-color: #69A3E9;
+    padding: 6px;
+    border-width: 4px;
+    border-radius: 2px;
+    border-style: solid;*/
+    /*background-color: #69A3E9;*/
+    color: #000000;
+}
+
+
+#widgets-header{
+	font-family: arial;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.ais-header{
+	font-family: arial;
+	font-size: 16px;
+	font-weight: bold;
+	color: #3d3d3d;
+}
+
+.ais-body{
+	padding: 0px;
+	margin: 0px;
+	font-family: arial;
+	font-size: 14px;
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+.ais-body a{
+	text-decoration: none;
+	color: #69B3E7;
+}
+
+.ais-body a:hover{
+	color:#003b64;
+}
+
+.ais-pagination{
+	font-family: arial;
+	font-size: 20px;
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+.ais-pagination a{
+	text-decoration: none;
+	color: #69B3E7;
+}
+
+
+.ais-pagination a:hover{
+	color:#003b64;
+}
